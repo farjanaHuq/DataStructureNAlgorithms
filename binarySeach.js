@@ -49,3 +49,5 @@ class Node {
     }
 
 }
+
+module.export = Node;
