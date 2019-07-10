@@ -1,7 +1,3 @@
-//Every node may have only two children
-//Every children node to the left have value less than the parent node
-//Every children node to the right have value bigger than the parent node
-
 // --- Directions
 // 1) Implement the Node class to create
 // a binary search tree.  The constructor
@@ -16,38 +12,39 @@
 // and return the Node in the tree with the same value.
 
 class Node {
-    constructor(data){
+    constructor(){
         this.data = data;
         this.left = null;
         this.right = null;
     }
+
     insert(data){
         if(data<this.data && this.left){
             this.left.insert(data);
         }
-        else if(data <this.data){
-            this.left = new Node(data);
+        else if(data < this.data){
+            this.left = new Node(data)
         }
         else if(data > this.data && this.right){
             this.right.insert(data);
         }
-        else if(data>this.data){
+        else if(data > this.data){
             this.right = new Node(data);
         }
     }
-
-    contains(data){
-        if(this.data === data){
-            return this;
-        }
-        if(data > this.data && this.right){
-            return this.right.contains(data);
-        }else if(data < this.data && this.left){
-            return this.left.contains(data);
-        }
-        return null;
+    contain(data){
+       //check to see the data > or < parent node
+       //if data < parent node ---> left node, else if ---> right node
+       // else if the value same return data vlaue
+       if(this.data === data){
+           return this;
+       }
+       else if(data < this.data && this.left){
+           return this.left.contains(data);
+       }
+       else if(data > this.data && this.left){
+          return this.right.contains(data);
+       }
+       else return null;
     }
-
 }
-
-module.export = Node;
