@@ -180,7 +180,7 @@ function midpoint(list){
 
 function circularList(list){
      let slow = list.getFirst(); //list.head
-     let slow = list.getFirst();
+     let fast = list.getFirst();
      
      while(fast.next&&fast.next.next){
          slow = slow.next;

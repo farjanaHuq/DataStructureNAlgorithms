@@ -28,9 +28,11 @@ class Node {
 }
 
 const newNode = new Node('a');
-newNode.add('b', [1, 2, 3]);
-newNode.add('d');
-newNode.add('c');
+// newNode.add('b', [1, 2, 3]);
+// newNode.add('d');
+// newNode.add('c');
+newNode.children.add(3);
+newNode.add(6);
 
 console.log(newNode);
 
@@ -70,4 +72,23 @@ class Tree {
     }
 }
 
+//Find level width of a tree
+function levelwidth(root){
+   const arr = [root, 's'];
+   const counter = [];
+   while(arr.length >1){
+       const node = arr.shift();
+       if(node === 's'){
+           counter.push(0);
+           arr.push('s');
+       }
+       else{
+           for(let child of node.children){
+               arr.push(child);
+               counter[counter.length-1]++;
+           }
 
+       }
+   }
+   return counter;
+}

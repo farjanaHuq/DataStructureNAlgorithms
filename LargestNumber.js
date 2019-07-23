@@ -12,27 +12,30 @@
 
 
 var largestNumber = function(A){
-     var str = A.join(" ");
-     var i = 0;
-     while(str){
-
-         A.sort(function(x,y){
-            x = str.charAt(i);
-            y = str.charAt(i+1);
-            if (x < y) {return -1;}
-            if (x > y) {return 1;}
-            return 0;
-         })
-         
-         i++;
-     }
-     
-     return str;
-    
+    var str = A.join("");
+    var strArr = [];
+    for(let char of str){
+        strArr.push(char);
+    }
+    var largestNum = strArr.sort(function(a,b){return b-a}).join("");
+    return largestNum;
 }
 
-let A = [3, 30, 34, 5, 9];
-var B = A.join("")
-// var c = Number(B);
-// console.log(c);
+let A = [8, 89];
 console.log(largestNumber(A));
+
+
+
+// var str = A.join("");
+// var sorted = [];
+
+// console.log(str);
+
+// for(let char of str){
+//     strArr.push(char);
+// }
+// var largestNum = strArr.sort(function(a,b){return b-a}).join("");
+// console.log(sorted);
+// console.log(largestNum);
+
+

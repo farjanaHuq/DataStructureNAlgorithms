@@ -48,3 +48,17 @@ class Node {
        else return null;
     }
 }
+
+//sum of leaf nodes
+
+function sumLeaf(node){
+     //iterate through left while left node is null
+     var leafArr = [];
+     if(node.data === null){
+         return 0;
+     }
+     while(!node.left){
+       leafArr.push(node.left)
+
+     }
+}
